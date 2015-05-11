@@ -1,0 +1,16 @@
+
+public class firstPage {
+	
+	/** The name of the MySQL account to use (or empty for anonymous) */
+	private final String userName = "";
+	
+	/** The password for the MySQL account (or empty for anonymous) */
+	private final String password = "";
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,59 @@
+import java.io.*;
+ 
+/**
+ * Province class implements Serialable
+ * to support mashalling
+ *
+ * @author http://lycog.com
+ */
+public class Province implements Serializable {
+ 
+  private int password_;
+  private String username_;
+  private String onoma_;
+  private String epwnimo_;
+  private String tilefwno_;
+  private String email_;
+  private int codeType_;
+  
+  public Province() {
+  }
+ 
+  public Province(int id, String shortName, String name) {
+	  password_ = id;
+	  username_
+	  onoma_
+	  epwnimo_
+	  tilefwno_
+	  email_
+	  codeType_
+  }
+ 
+  public int getId() {
+    return id_;
+  }
+ 
+  public void setId(int id) {
+    id_ = id;
+  }
+ 
+  public String getShortName() {
+    return shortName_;
+  }
+ 
+  public void setShortName(String shortName) {
+    shortName_ = shortName;
+  }
+ 
+  public String getName() {
+    return name_;
+  }
+ 
+  public void setName(String name) {
+    name_ = name;
+  }
+ 
+  public String toString() {
+    return id_ + " - " + shortName_ + " - " + name_;
+  }
+}

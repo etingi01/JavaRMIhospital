@@ -1,0 +1,27 @@
+
+public class firstPage {
+	/** The name of the MySQL account to use (or empty for anonymous) */
+	private final String userName = "evtingiri";
+
+	/** The password for the MySQL account (or empty for anonymous) */
+	private final String password = "99756303";
+
+	/** The name of the computer running MySQL */
+	private final String serverName = "localhost";
+
+	/** The port of the MySQL server (default is 3306) */
+	private final int portNumber = 3306;
+
+	/** The name of the database we are testing with (this default is installed with MySQL) */
+	private final String dbName = "hospital";
+	
+	/** The name of the table we are testing with */
+	private final String tableName = "JDBC_TEST";
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
