@@ -1,6 +1,7 @@
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.sql.Date;
 import java.util.ArrayList;
  
 /**
@@ -29,8 +30,7 @@ public class ProvinceClient {
       
       Astheneis as1 = as.findById(1);      
       System.out.println(as1.toString());
-
-      
+    
       
   
     } catch (Exception e) {

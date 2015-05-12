@@ -1,0 +1,21 @@
+import java.io.Serializable;
+import java.sql.*;
+public class AstheneisTravma implements Serializable {
+	private int codeTravma_;
+	private int kodAstheni_;
+	private String description_;
+	private Date imerominiaTravma_;
+
+	public AstheneisTravma(){
+		
+	}
+	
+	public AstheneisTravma(int codeTravma, int kodAstheni, String description, Date imerominiaTravma){
+		codeTravma_ =codeTravma;
+		kodAstheni_ = kodAstheni;
+		description_=description;
+		
+	}
+	
+	
+}
