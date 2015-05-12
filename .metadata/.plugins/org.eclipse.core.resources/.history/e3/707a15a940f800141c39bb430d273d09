@@ -1,0 +1,10 @@
+import java.io.Serializable;
+
+
+public class AstheneisAllergies implements Serializable {
+	private int kodikosPatient_;
+	private int kodikodTherapias_;
+	
+	
+	
+}

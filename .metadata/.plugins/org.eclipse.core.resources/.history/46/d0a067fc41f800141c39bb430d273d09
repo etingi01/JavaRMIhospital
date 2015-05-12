@@ -1,0 +1,7 @@
+import java.rmi.server.*;
+import java.rmi.*;
+ 
+public class AstheneisAllergiesObject extends UnicastRemoteObject
+	implements IRemoteAstheneisAllergies { 
+
+}

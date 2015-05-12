@@ -1,0 +1,31 @@
+import java.io.*;
+
+public class Asteneis implements Serializable {
+	
+	private int idAstheneis_;
+	private String onoma_;
+	private String epwnimo_;
+	private String tilefwno_;
+	private String diefthinsi_;
+	private String email_;
+	private int flag_;
+	private int dead_;
+	
+
+	  public Asteneis() {
+	  }
+	 
+
+	  public Asteneis(int idAstheneis, String onoma, String epwnimo, String tilefwno, String diefthinsi, String email, int flag, int dead) {
+		  idAstheneis_ = idAstheneis;
+		  onoma_= onoma;
+		  epwnimo_ = epwnimo;
+		  tilefwno_=tilefwno;
+		  diefthinsi_ = diefthinsi;
+		  email_ = email;
+		  flag_ = flag;
+		  dead_= dead;
+	  }
+	 
+	
+}

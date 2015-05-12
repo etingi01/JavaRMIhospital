@@ -1,0 +1,22 @@
+import java.rmi.server.*;
+import java.rmi.*;
+ 
+public class AstheneisAllergiesObject extends UnicastRemoteObject
+	implements IRemoteAstheneisAllergies { 
+
+	
+	public AstheneisAllergiesObject() throws RemoteException {
+	    super();
+	}
+
+
+	public int save(AstheneisAllergies p) throws ClassNotFoundException {
+	    try {
+	      System.out.println("Invoke save from " + getClientHost());
+	    } catch (ServerNotActiveException snae) {
+	      snae.printStackTrace();
+	    }
+	    return AstheneisAllergiesRepository.save(p);
+	  }
+	 
+}
