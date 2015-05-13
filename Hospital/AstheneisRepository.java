@@ -58,10 +58,10 @@ public class AstheneisRepository {
     Astheneis p = new Astheneis();
 
     try {
-      String QRY = "SELECT * FROM astheneis WHERE idAstheneis LIKE(?)";
+      String QRY = "SELECT * FROM astheneis WHERE idAstheneis=?";
       Connection con = DBManager.getConnection();
       PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setString(1, "%" + id + "%");
+      pstmt.setInt(1,id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
         p.setIdAstheneis(rs.getInt("idAstheneis"));
@@ -85,10 +85,10 @@ public class AstheneisRepository {
 	    Astheneis p = new Astheneis();
 
 	    try {
-	      String QRY = "SELECT * FROM astheneis WHERE flag LIKE(?)";
+	      String QRY = "SELECT * FROM astheneis WHERE flag=?";
 	      Connection con = DBManager.getConnection();
 	      PreparedStatement pstmt = con.prepareStatement(QRY);
-	      pstmt.setString(1, "%" + id + "%");
+	      pstmt.setInt(1, id );
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
 	        p.setIdAstheneis(rs.getInt("idAstehneis"));
@@ -111,10 +111,10 @@ public class AstheneisRepository {
 	    Astheneis p = new Astheneis();
 
 	    try {
-	      String QRY = "SELECT * FROM astheneis WHERE dead LIKE(?)";
+	      String QRY = "SELECT * FROM astheneis WHERE dead=?";
 	      Connection con = DBManager.getConnection();
 	      PreparedStatement pstmt = con.prepareStatement(QRY);
-	      pstmt.setString(1, "%" + id + "%");
+	      pstmt.setInt(1,  id);
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
 	        p.setIdAstheneis(rs.getInt("idAstehneis"));

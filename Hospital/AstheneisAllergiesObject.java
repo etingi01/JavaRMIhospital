@@ -1,5 +1,6 @@
 import java.rmi.server.*;
 import java.rmi.*;
+import java.util.ArrayList;
  
 public class AstheneisAllergiesObject extends UnicastRemoteObject
 	implements IRemoteAstheneisAllergies { 
@@ -20,7 +21,7 @@ public class AstheneisAllergiesObject extends UnicastRemoteObject
 	  }
 	
 	 
-public AstheneisAllergies findByKodikosPatient(int criteria) throws ClassNotFoundException {
+public ArrayList<AstheneisAllergies> findByKodikosPatient(int criteria) throws ClassNotFoundException {
 		    try {
 		      System.out.println("Invoke findByName from " + getClientHost());
 		    } catch (ServerNotActiveException snae) {

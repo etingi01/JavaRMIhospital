@@ -12,5 +12,5 @@ public interface IRemoteAstheneisAllergies extends Remote {
   public int delete(Province p) throws RemoteException;
   public void deleteAll() throws RemoteException;
   public ArrayList findAll() throws RemoteException;*/
-  public AstheneisAllergies findByKodikosPatient(int criteria) throws RemoteException, ClassNotFoundException;
+  public ArrayList<AstheneisAllergies> findByKodikosPatient(int criteria) throws RemoteException, ClassNotFoundException;
 }

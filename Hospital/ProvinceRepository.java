@@ -119,10 +119,10 @@ public class ProvinceRepository {
     Province p = new Province();
 
     try {
-      String QRY = "SELECT * FROM ipalliloi WHERE username LIKE(?)";
+      String QRY = "SELECT * FROM ipalliloi WHERE username=?";
       Connection con = DBManager.getConnection();
       PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setString(1, "%" + username + "%");
+      pstmt.setString(1, username);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
         p.setPassword(rs.getInt("password"));
@@ -140,4 +140,5 @@ public class ProvinceRepository {
     }
     return p;
   }
+  
 }

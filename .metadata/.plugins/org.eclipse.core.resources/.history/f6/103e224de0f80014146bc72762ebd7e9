@@ -1,0 +1,35 @@
+import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
+import java.rmi.server.UnicastRemoteObject;
+
+
+public class CommentsObject extends UnicastRemoteObject
+implements IRemoteComments {
+
+
+	public CommentsObject() throws RemoteException {
+	    super();
+	  }
+	public int save(comments p) throws ClassNotFoundException {
+	    try {
+		      System.out.println("Invoke update from " + getClientHost());
+		    } catch (ServerNotActiveException snae) {
+		      snae.printStackTrace();
+		    }
+		    return CommentsRepository.save(p);
+	}
+	public int update(comments p) throws ClassNotFoundException {
+	    try {
+	      System.out.println("Invoke update from " + getClientHost());
+	    } catch (ServerNotActiveException snae) {
+	      snae.printStackTrace();
+	    }
+	    return CommentsRepository.update(p);
+	  }
+
+		
+	
+
+
+
+}

@@ -20,7 +20,8 @@ public class ProvinceClient {
      IRemoteProvince rp = (IRemoteProvince) registry.lookup("Province");
       System.out.println("astheneis lookup");
       IRemoteAstheneis as = (IRemoteAstheneis) registry.lookup("Astheneis");
-
+      IRemoteAstheneisAllergies al = (IRemoteAstheneisAllergies) registry.lookup("AstheneisAllergies");
+      IRemoteAstheneisTravma at = (IRemoteAstheneisTravma) registry.lookup("AstheneisTravma");
       //Save province
       Province bmc = new Province(8282, "rlouka01", "Rafaellita", "Louka", "99394781" , "rafkiola@gmail.com", 2);
       System.out.println("Saving provinces...");
@@ -31,6 +32,11 @@ public class ProvinceClient {
       Astheneis as1 = as.findById(1);      
       System.out.println(as1.toString());
     
+      //AstheneisAllergies al1 = al.findByKodikosPatient(2);
+      //System.out.println(al1.toString());
+
+      AstheneisTravma at1 = at.findByCodeTravma(1);
+      System.out.println(at1.toString());
       
   
     } catch (Exception e) {

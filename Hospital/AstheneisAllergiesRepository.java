@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.*;
 
 public class AstheneisAllergiesRepository {
 	public static int save( AstheneisAllergies p) throws ClassNotFoundException {
@@ -20,26 +21,27 @@ public class AstheneisAllergiesRepository {
 	    return iRet;
 	  }
 	
-	  public static AstheneisAllergies findByKodikosPatient(int id) throws ClassNotFoundException {
-		  AstheneisAllergies p = new AstheneisAllergies();
+	  public static ArrayList<AstheneisAllergies> findByKodikosPatient(int id) throws ClassNotFoundException {
+		  ArrayList<AstheneisAllergies> arr = new ArrayList();
 
 		    try {
-		      String QRY = "SELECT * FROM astheneisallergies WHERE kodikosPatient LIKE(?)";
+		      String QRY = "SELECT * FROM astheneisallergies WHERE kodikosPatient=?";
 		      Connection con = DBManager.getConnection();
 		      PreparedStatement pstmt = con.prepareStatement(QRY);
-		      pstmt.setString(1, "%" + id + "%");
+		      pstmt.setInt(1,  id );
 		      ResultSet rs = pstmt.executeQuery();
 		      while (rs.next()) {
+		    	  AstheneisAllergies p = new AstheneisAllergies();
 		    	p.setKodikosPatient(rs.getInt("kodikosPatient"));
 		        p.setKodikosTherapeias(rs.getInt("kodikosTherapias"));
-		        
+		        arr.add(p);
 		   }
 		 
 		      pstmt.close();
 		    } catch (SQLException se) {
 		      System.out.println(se);
 		    }
-		    return p;
+		    return arr;
 		  }
 
 }

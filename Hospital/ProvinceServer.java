@@ -25,10 +25,16 @@ public class ProvinceServer {
     	//Instantiate server object
       ProvinceObject po = new ProvinceObject();
       AstheneisObject ast = new AstheneisObject();
-
+      AstheneisAllergiesObject all = new AstheneisAllergiesObject();
+      AstheneisTravmaObject    att = new AstheneisTravmaObject();
       //Register server object
       registry.rebind("Province", po);
       registry.rebind("Astheneis", ast);
+      registry.rebind("AstheneisAllergies", all);
+      registry.rebind("AstheneisTravma", att);
+
+      
+      
 
       System.out.println("ProvinceServer is created!!!");
     } catch (Exception e) {

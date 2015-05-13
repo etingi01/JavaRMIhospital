@@ -1,0 +1,67 @@
+import java.sql.*;
+import java.util.ArrayList;
+
+public class CommentsRepository {
+	public static int save(comments p) throws ClassNotFoundException {
+	    int iRet = -1;
+	    try {
+	      Connection con = DBManager.getConnection();
+	      String SQL = "INSERT INTO comments(patient, doctor, comments) Values(?,?,?)";
+	      PreparedStatement pstmt = con.prepareStatement(SQL);
+	      pstmt.setInt(1, p.getPatient());
+	      pstmt.setInt(2, p.getDoctor());
+	      pstmt.setString(3, p.getComments());
+
+	      iRet = pstmt.executeUpdate();
+	 
+	      pstmt.close();
+	    } catch (SQLException se) {
+	      System.out.println(se);
+	    }
+	    return iRet;
+	  }
+	public static int update(comments p) throws ClassNotFoundException {
+	    int iRet = -1;
+	    try {
+	      Connection con = DBManager.getConnection();
+	      String SQL = "UPDATE comments SET comments=? WHERE patient=? AND doctor=?";
+	      PreparedStatement pstmt = con.prepareStatement(SQL);
+	      pstmt.setString(1, p.getComments());
+	      pstmt.setInt(2, p.getPatient());
+	      pstmt.setInt(3, p.getDoctor());
+	      iRet = pstmt.executeUpdate();
+	 
+	      pstmt.close();
+	    } catch (SQLException se) {
+	      System.out.println(se);
+	    }
+	 
+	    return iRet;
+	  }
+	
+	  public static ArrayList<comments> findById(int criteria) throws ClassNotFoundException {
+		  ArrayList<comments> arr = new ArrayList();
+		    try {
+		      String QRY = "SELECT * FROM comments WHERE patient=?";
+		      Connection con = DBManager.getConnection();
+		      PreparedStatement pstmt = con.prepareStatement(QRY);
+		      pstmt.setInt(1,  criteria );
+		      ResultSet rs = pstmt.executeQuery();
+		      while (rs.next()) {
+				    comments p = new comments();
+		        p.setPatient(rs.getInt("patient"));
+		        p.setDoctor(rs.getInt("doctor"));
+		        p.setCommets(rs.getString("comments"));
+		       arr.add(p);
+		      }
+		 
+		      pstmt.close();
+		    } catch (SQLException se) {
+		      System.out.println(se);
+		    }
+		    return p;
+		  }
+
+	
+
+}
