@@ -11,7 +11,6 @@ public class PatientAstheneies implements Serializable {
 	public PatientAstheneies() {
 	}
 	 
-
 	public PatientAstheneies(int codeArrwstias, int codeAstheni) {
 		codeArrwstias_ = codeArrwstias;
 		codeAstheni_ = codeAstheni;
@@ -34,7 +33,7 @@ public class PatientAstheneies implements Serializable {
 	}
 	   
     public String toString() {
-    	return codeArrwstias_ + " - " +codeAstheni_;
+    	return codeArrwstias_ + " - " + codeAstheni_;
     }	  
 			  
 }

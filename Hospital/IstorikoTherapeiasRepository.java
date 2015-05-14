@@ -5,7 +5,6 @@ import java.util.ArrayList;
  
 public class IstorikoTherapeiasRepository {
  
-	
 	public static int save(IstorikoTherapeias p) throws ClassNotFoundException {
 		int iRet = -1;
 		try {
@@ -33,10 +32,10 @@ public class IstorikoTherapeiasRepository {
 		ArrayList<IstorikoTherapeias> istoriko = new ArrayList<IstorikoTherapeias>();
 	  
 		try {
-			String QRY = "SELECT * FROM istorikotherapeias WHERE codeTherapeias LIKE(?)";
+			String QRY = "SELECT * FROM istorikotherapeias WHERE codeTherapeias = ?";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%");
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				p.setIdIstorikoTherapeias(rs.getInt("idIstorikoTherapeias"));

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TherapeiesAstheneiesRepository {
- 
 	
 	public static int save(TherapeiesAstheneies p) throws ClassNotFoundException {
 	    int iRet = -1;
@@ -30,14 +29,15 @@ public class TherapeiesAstheneiesRepository {
 	}
 	 
 	
-	public static TherapeiesAstheneies findByTherapeiaAndAstheneia (int id, int id2) throws ClassNotFoundException {
+	public static TherapeiesAstheneies findByTherapeiaAndAstheneia (int id, int id1) throws ClassNotFoundException {
 		TherapeiesAstheneies  p = new TherapeiesAstheneies();
 	  
 		try {
-			String QRY = "SELECT * FROM therapeiesastheneies WHERE codeAstheneias LIKE(?) AND therapeiaCode LIKE(?)";
+			String QRY = "SELECT * FROM therapeiesastheneies WHERE codeAstheneias = ? AND therapeiaCode = ?";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%" + id2 + "%");
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, id1);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				p.setCodeAstheneias(rs.getInt("codeAstheneias"));
@@ -59,10 +59,10 @@ public class TherapeiesAstheneiesRepository {
 		ArrayList<TherapeiesAstheneies> astheneia = new ArrayList<TherapeiesAstheneies>();
 		
 		try {
-			String QRY = "SELECT * FROM therapeiesastheneies WHERE codeAstheneias LIKE(?)";
+			String QRY = "SELECT * FROM therapeiesastheneies WHERE codeAstheneias = ?";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%");
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				p.setCodeAstheneias(rs.getInt("codeAstheneias"));
@@ -85,10 +85,10 @@ public class TherapeiesAstheneiesRepository {
 		ArrayList<TherapeiesAstheneies> therapeia = new ArrayList<TherapeiesAstheneies>();
 	  
 		try {
-			String QRY = "SELECT * FROM therapeiesastheneies WHERE therapeiaCode LIKE(?)";
+			String QRY = "SELECT * FROM therapeiesastheneies WHERE therapeiaCode = ?";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%");
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				p.setCodeAstheneias(rs.getInt("codeAstheneias"));

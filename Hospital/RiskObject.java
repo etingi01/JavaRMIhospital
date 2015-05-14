@@ -31,7 +31,7 @@ public ArrayList<Risk> findByCodeArrostos (int criteria) throws ClassNotFoundExc
 }
 
 
-public ArrayList<Risk> findByCodeGiatros (int criteria) throws ClassNotFoundException {
+public ArrayList<Risk> findByCodeGiatros (String criteria) throws ClassNotFoundException {
 	try {
 		System.out.println("Invoke findByName from " + getClientHost());
 	} catch (ServerNotActiveException snae) {
@@ -41,7 +41,7 @@ public ArrayList<Risk> findByCodeGiatros (int criteria) throws ClassNotFoundExce
 	return RiskRepository.findByCodeGiatros (criteria);
 }
 
-public Risk findByArrostosAndGiatros (int criteria, int criteria1) throws ClassNotFoundException {
+public Risk findByArrostosAndGiatros (int criteria, String criteria1) throws ClassNotFoundException {
 	try {
 		System.out.println("Invoke findByName from " + getClientHost());
 	} catch (ServerNotActiveException snae) {

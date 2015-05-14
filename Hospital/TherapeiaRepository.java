@@ -27,12 +27,11 @@ public class TherapeiaRepository {
 	
 	public static Therapeia findByTherapeia (int id) throws ClassNotFoundException {
 		Therapeia  p = new Therapeia();
-	  
 	    try {
-	    	String QRY = "SELECT * FROM therapeia WHERE idTherapeia LIKE(?) ";
+	    	String QRY = "SELECT * FROM therapeia WHERE idTherapeia = ? ";
 	    	Connection con = DBManager.getConnection();
 	    	PreparedStatement pstmt = con.prepareStatement(QRY);
-	    	pstmt.setString(1, "%" + id + "%");
+	    	pstmt.setInt(1, id);
 	    	ResultSet rs = pstmt.executeQuery();
 	    	while (rs.next()) {
 	    		p.setIdTherapeia(rs.getInt("idTherapeia"));

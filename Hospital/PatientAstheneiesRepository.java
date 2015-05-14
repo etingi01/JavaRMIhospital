@@ -31,10 +31,10 @@ public class PatientAstheneiesRepository {
 		ArrayList<PatientAstheneies> astheni = new ArrayList<PatientAstheneies>();
 	  
 		try {
-			String QRY = "SELECT * FROM patientastheneies WHERE codeAstheni LIKE(?) ";
+			String QRY = "SELECT * FROM patientastheneies WHERE codeAstheni = ? ";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%");
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				p.setCodeArrwstias(rs.getInt("codeAstheni"));
@@ -57,10 +57,10 @@ public class PatientAstheneiesRepository {
 		ArrayList<PatientAstheneies> arrwstia = new ArrayList<PatientAstheneies>();
 	  
 		try {
-			String QRY = "SELECT * FROM patientastheneies WHERE codeArrwstias LIKE(?) ";
+			String QRY = "SELECT * FROM patientastheneies WHERE codeArrwstias = ? ";
 			Connection con = DBManager.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(QRY);
-			pstmt.setString(1, "%" + id + "%");
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
       
 			while (rs.next()) {

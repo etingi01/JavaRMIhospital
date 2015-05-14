@@ -8,24 +8,25 @@ public class EidiIpallilwnRepository {
 	  EidiIpallilwn p = new EidiIpallilwn();
 	  ArrayList<EidiIpallilwn> ipalliloi = new ArrayList<EidiIpallilwn>();
 	  
-    try {
-      String QRY = "SELECT * FROM eidiypallilwn WHERE codeEidikotitas LIKE(?)";
-      Connection con = DBManager.getConnection();
-      PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setString(1, "%" + id + "%");
-      ResultSet rs = pstmt.executeQuery();
-      while (rs.next()) {
-        p.setCodeEidikotitas(rs.getInt("codeEidikotitas"));
-        p.setOnomaEidikotitas(rs.getString("onomaEidikotitas"));
-        p.setClinicalStaff(rs.getInt("clinicalStaff"));
-        ipalliloi.add(p);
-   }
+	  try {
+		  String QRY = "SELECT * FROM eidiypallilwn WHERE codeEidikotitas = ?";
+	      Connection con = DBManager.getConnection();
+	      PreparedStatement pstmt = con.prepareStatement(QRY);
+	      pstmt.setInt(1, id);
+	      ResultSet rs = pstmt.executeQuery();
+	      while (rs.next()) {
+	    	  p.setCodeEidikotitas(rs.getInt("codeEidikotitas"));
+	    	  p.setOnomaEidikotitas(rs.getString("onomaEidikotitas"));
+	    	  p.setClinicalStaff(rs.getInt("clinicalStaff"));
+	    	  ipalliloi.add(p);
+	      }
  
-      pstmt.close();
+	      pstmt.close();
     } catch (SQLException se) {
-      System.out.println(se);
+    	System.out.println(se);
     }
-    return ipalliloi;
+	  
+	  return ipalliloi;
   }
 
 }

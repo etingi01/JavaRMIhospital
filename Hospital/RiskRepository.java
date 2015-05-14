@@ -33,10 +33,10 @@ public class RiskRepository {
 	  ArrayList<Risk> astheni = new ArrayList<Risk>();
 	  
     try {
-      String QRY = "SELECT * FROM risk WHERE arrostos LIKE(?) ";
+      String QRY = "SELECT * FROM risk WHERE arrostos = ? ";
       Connection con = DBManager.getConnection();
       PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setString(1, "%" + id + "%");
+      pstmt.setInt(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
         p.setArrostos(rs.getInt("arrostos"));
@@ -44,7 +44,7 @@ public class RiskRepository {
         p.setRisk(rs.getInt("risk"));
         
         astheni.add(p);
-   }
+     }
       
       pstmt.close();
     } catch (SQLException se) {
@@ -53,15 +53,15 @@ public class RiskRepository {
     return astheni;
   }
 
-  public static  ArrayList<Risk> findByCodeGiatros (int id) throws ClassNotFoundException {
+  public static  ArrayList<Risk> findByCodeGiatros (String id) throws ClassNotFoundException {
 	 Risk  p = new Risk();
 	 ArrayList<Risk> arrwstia = new ArrayList<Risk>();
 	  
     try {
-      String QRY = "SELECT * FROM risk WHERE giatros LIKE(?) ";
+      String QRY = "SELECT * FROM risk WHERE giatros = ? ";
       Connection con = DBManager.getConnection();
       PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setString(1, "%" + id + "%");
+      pstmt.setString(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
         p.setArrostos(rs.getInt("arrostos"));
@@ -79,19 +79,20 @@ public class RiskRepository {
     return arrwstia;
   }
   
-  public static Risk findByArrostosAndGiatros (int id, int id1) throws ClassNotFoundException {
+  public static Risk findByArrostosAndGiatros (int id, String id1) throws ClassNotFoundException {
 		 Risk p = new Risk();
 		  
 	    try {
-	      String QRY = "SELECT * FROM risk WHERE giatros LIKE(?) AND arrostos LIKE(?)";
+	      String QRY = "SELECT * FROM risk WHERE arrostos = ? AND giatros = ?";
 	      Connection con = DBManager.getConnection();
 	      PreparedStatement pstmt = con.prepareStatement(QRY);
-	      pstmt.setString(1, "%" + id + "%" + id1 + "%");
+	      pstmt.setInt(1, id);
+	      pstmt.setString(2, id1);
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
-	        p.setArrostos(rs.getInt("arrostos"));
-	        p.setGiatros(rs.getString("giatros"));
-	        p.setRisk(rs.getInt("risk"));
+	    	  p.setArrostos(rs.getInt("arrostos"));
+	    	  p.setGiatros(rs.getString("giatros"));
+	    	  p.setRisk(rs.getInt("risk"));
 	       
 	      }
 	      

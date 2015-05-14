@@ -1,6 +1,6 @@
 import java.io.Serializable;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.*;
 
 public class TherapeiesAstheneies implements Serializable {
 	

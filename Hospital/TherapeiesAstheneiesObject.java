@@ -20,14 +20,13 @@ public class TherapeiesAstheneiesObject extends UnicastRemoteObject
 	  }
 	
 	 
-	public TherapeiesAstheneies findByTherapeiaAndAstheneia  (int criteria, int cirteria2) throws ClassNotFoundException {
+	public TherapeiesAstheneies findByTherapeiaAndAstheneia (int criteria, int cirteria2) throws ClassNotFoundException {
 		try {
 			System.out.println("Invoke findByName from " + getClientHost());
 		} catch (ServerNotActiveException snae) {
 			snae.printStackTrace();
 		}
-	
-		return TherapeiesAstheneiesRepository.findByTherapeiaAndAstheneia(criteria,cirteria2);
+		return TherapeiesAstheneiesRepository.findByTherapeiaAndAstheneia(criteria, cirteria2);
 	}
 
 	public ArrayList<TherapeiesAstheneies> findByTherapeia (int criteria) throws ClassNotFoundException {
@@ -36,7 +35,6 @@ public class TherapeiesAstheneiesObject extends UnicastRemoteObject
 		} catch (ServerNotActiveException snae) {
 			snae.printStackTrace();
 		}
-	
 		return TherapeiesAstheneiesRepository.findByTherapeia(criteria);
 	}
 
@@ -46,7 +44,6 @@ public class TherapeiesAstheneiesObject extends UnicastRemoteObject
 		} catch (ServerNotActiveException snae) {
 			snae.printStackTrace();
 		}
-	
 		return TherapeiesAstheneiesRepository.findByAstheneia(criteria);
 	}
 	

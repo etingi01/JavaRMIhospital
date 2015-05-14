@@ -10,10 +10,10 @@ public class SiggenisAstheniRepository {
 		SiggenisAstheni p = new SiggenisAstheni();
 	  
 		try {
-	    	String QRY = "SELECT * FROM siggenisastheni WHERE kodikosArrostou LIKE(?) ";
+	    	String QRY = "SELECT * FROM siggenisastheni WHERE kodikosArrostou = ? ";
 	    	Connection con = DBManager.getConnection();
 	    	PreparedStatement pstmt = con.prepareStatement(QRY);
-	    	pstmt.setString(1, "%" + id + "%");
+	    	pstmt.setInt(1, id);
 	    	ResultSet rs = pstmt.executeQuery();
 	    	while (rs.next()) {
 	    		p.setCodeSiggeni(rs.getInt("codeSIGGENI"));
@@ -31,6 +31,3 @@ public class SiggenisAstheniRepository {
 	}
 
 }
-
-
-
