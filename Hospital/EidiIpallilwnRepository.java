@@ -5,7 +5,6 @@ public class EidiIpallilwnRepository {
  
  
   public static  ArrayList<EidiIpallilwn> findByCodeEidikotitas (int id) throws ClassNotFoundException {
-	  EidiIpallilwn p = new EidiIpallilwn();
 	  ArrayList<EidiIpallilwn> ipalliloi = new ArrayList<EidiIpallilwn>();
 	  
 	  try {
@@ -15,6 +14,7 @@ public class EidiIpallilwnRepository {
 	      pstmt.setInt(1, id);
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
+	    	  EidiIpallilwn p = new EidiIpallilwn();
 	    	  p.setCodeEidikotitas(rs.getInt("codeEidikotitas"));
 	    	  p.setOnomaEidikotitas(rs.getString("onomaEidikotitas"));
 	    	  p.setClinicalStaff(rs.getInt("clinicalStaff"));

@@ -27,7 +27,6 @@ public class PatientAstheneiesRepository {
 	}
  
 	public static  ArrayList<PatientAstheneies> findByCodeAstheni (int id) throws ClassNotFoundException {
-		PatientAstheneies  p = new PatientAstheneies();
 		ArrayList<PatientAstheneies> astheni = new ArrayList<PatientAstheneies>();
 	  
 		try {
@@ -37,6 +36,7 @@ public class PatientAstheneiesRepository {
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				PatientAstheneies  p = new PatientAstheneies();
 				p.setCodeArrwstias(rs.getInt("codeAstheni"));
 				p.setCodeAstheni(rs.getInt("codeArrwstias"));
 			  
@@ -53,7 +53,6 @@ public class PatientAstheneiesRepository {
 	}
 
 	public static  ArrayList<PatientAstheneies> findByCodeArrwstias (int id) throws ClassNotFoundException {
-		PatientAstheneies  p = new PatientAstheneies();
 		ArrayList<PatientAstheneies> arrwstia = new ArrayList<PatientAstheneies>();
 	  
 		try {
@@ -64,6 +63,7 @@ public class PatientAstheneiesRepository {
 			ResultSet rs = pstmt.executeQuery();
       
 			while (rs.next()) {
+				PatientAstheneies  p = new PatientAstheneies();
 				p.setCodeArrwstias(rs.getInt("codeAstheni"));
 				p.setCodeAstheni(rs.getInt("codeArrwstias"));
         

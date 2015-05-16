@@ -29,7 +29,6 @@ public class RiskRepository {
 	 }
  
   public static  ArrayList<Risk> findByCodeArrostos (int id) throws ClassNotFoundException {
-	  Risk  p = new Risk();
 	  ArrayList<Risk> astheni = new ArrayList<Risk>();
 	  
     try {
@@ -39,11 +38,12 @@ public class RiskRepository {
       pstmt.setInt(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
-        p.setArrostos(rs.getInt("arrostos"));
-        p.setGiatros(rs.getString("giatros"));
-        p.setRisk(rs.getInt("risk"));
+    	  Risk  p = new Risk();
+    	  p.setArrostos(rs.getInt("arrostos"));
+    	  p.setGiatros(rs.getString("giatros"));
+    	  p.setRisk(rs.getInt("risk"));
         
-        astheni.add(p);
+    	  astheni.add(p);
      }
       
       pstmt.close();
@@ -54,7 +54,6 @@ public class RiskRepository {
   }
 
   public static  ArrayList<Risk> findByCodeGiatros (String id) throws ClassNotFoundException {
-	 Risk  p = new Risk();
 	 ArrayList<Risk> arrwstia = new ArrayList<Risk>();
 	  
     try {
@@ -64,11 +63,12 @@ public class RiskRepository {
       pstmt.setString(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
-        p.setArrostos(rs.getInt("arrostos"));
-        p.setGiatros(rs.getString("giatros"));
-        p.setRisk(rs.getInt("risk"));
+    	  Risk  p = new Risk();
+    	  p.setArrostos(rs.getInt("arrostos"));
+    	  p.setGiatros(rs.getString("giatros"));
+    	  p.setRisk(rs.getInt("risk"));
        
-        arrwstia.add(p);
+    	  arrwstia.add(p);
    }
       
       pstmt.close();

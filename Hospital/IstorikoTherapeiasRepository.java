@@ -28,7 +28,6 @@ public class IstorikoTherapeiasRepository {
 	}
  
 	public static ArrayList<IstorikoTherapeias> findByCodeTherapeias (int id) throws ClassNotFoundException {
-		IstorikoTherapeias  p = new IstorikoTherapeias();
 		ArrayList<IstorikoTherapeias> istoriko = new ArrayList<IstorikoTherapeias>();
 	  
 		try {
@@ -38,6 +37,7 @@ public class IstorikoTherapeiasRepository {
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				IstorikoTherapeias p = new IstorikoTherapeias();
 				p.setIdIstorikoTherapeias(rs.getInt("idIstorikoTherapeias"));
 				p.setCodeTherapeias(rs.getInt("codeTherapeias"));
 				p.setSintagi(rs.getString("sintagi"));

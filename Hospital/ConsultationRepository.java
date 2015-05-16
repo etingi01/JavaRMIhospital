@@ -42,17 +42,14 @@ public class ConsultationRepository {
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
     	  Consultation  p = new Consultation();
-
-        p.setIdConsultation(rs.getInt("idConsultation"));
-        p.setKodPatient(rs.getInt("kodPatient"));
-        p.setDoctorusername(rs.getString("doctorusername"));
-        p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
-        p.setOra(rs.getString("ora"));
-        p.setEmfanistike(rs.getInt("emfanistike"));
-        
-        System.out.println("vrike");
-        
-        patient.add(p);
+    	  p.setIdConsultation(rs.getInt("idConsultation"));
+    	  p.setKodPatient(rs.getInt("kodPatient"));
+    	  p.setDoctorusername(rs.getString("doctorusername"));
+    	  p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
+    	  p.setOra(rs.getString("ora"));
+    	  p.setEmfanistike(rs.getInt("emfanistike"));
+    	  System.out.println("vrike");
+    	  patient.add(p);
    }
       
       pstmt.close();
@@ -65,7 +62,6 @@ public class ConsultationRepository {
   
   
   public static ArrayList<Consultation> findByDoctorUsername (String username) throws ClassNotFoundException {
-	  	Consultation p = new Consultation();
 		ArrayList<Consultation> doctor = new ArrayList<Consultation>();
 		  
 	    try {
@@ -75,6 +71,7 @@ public class ConsultationRepository {
 	      pstmt.setString(1, username);
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
+	    	  Consultation p = new Consultation();
 	    	  p.setIdConsultation(rs.getInt("idConsultation"));
 	          p.setKodPatient(rs.getInt("kodPatient"));
 	          p.setDoctorusername(rs.getString("doctorusername"));
@@ -95,7 +92,6 @@ public class ConsultationRepository {
 	  }
   
   public static ArrayList<Consultation> findByImerominia (Date id) throws ClassNotFoundException {
-	  Consultation  p = new Consultation();
 	 ArrayList<Consultation> imerominia = new ArrayList<Consultation>();
 	  
     try {
@@ -105,6 +101,7 @@ public class ConsultationRepository {
       pstmt.setDate(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
+    	  Consultation  p = new Consultation();
     	  p.setIdConsultation(rs.getInt("idConsultation"));
           p.setKodPatient(rs.getInt("kodPatient"));
           p.setDoctorusername(rs.getString("doctorusername"));
@@ -123,7 +120,6 @@ public class ConsultationRepository {
   }
   
   public static ArrayList<Consultation> findByEmfanistike (int id) throws ClassNotFoundException {
-	  Consultation  p = new Consultation();
 	 ArrayList<Consultation> emfanistike = new ArrayList<Consultation>();
 	  
     try {
@@ -133,13 +129,14 @@ public class ConsultationRepository {
       pstmt.setInt(1, id);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
+    	  Consultation  p = new Consultation();
     	  p.setIdConsultation(rs.getInt("idConsultation"));
           p.setKodPatient(rs.getInt("kodPatient"));
           p.setDoctorusername(rs.getString("doctorusername"));
           p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
           p.setOra(rs.getString("ora"));
           p.setEmfanistike(rs.getInt("emfanistike"));
-        emfanistike.add(p);
+          emfanistike.add(p);
    }
       
       pstmt.close();
