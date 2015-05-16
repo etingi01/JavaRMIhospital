@@ -66,9 +66,9 @@ public class ProvinceClient {
 		    pass = JOptionPane.showInputDialog("Δώστε τον κωδικό σας");
 		    passwd = Integer.parseInt(pass);
 		    passwordofIpallilos = rp.findByUsername(user).getPassword();
+
+	    	
 	    }
-	    
-	    
 	    
 
     } catch (Exception e) {

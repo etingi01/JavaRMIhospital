@@ -50,7 +50,7 @@ public class ProvinceClient {
       
 	    String user = JOptionPane.showInputDialog("Δώστε το username σας");
 	    
-	    while (rp.findByUsername(user).getPassword()==0){
+	    while (rp.findByUsername(user)==null){
 	    	user = JOptionPane.showInputDialog("Δώσατε μη υπαρκτό username.\n Δώστε ξανά το username σας");
 	    }
 	    String pass = JOptionPane.showInputDialog("Δώστε τον κωδικό σας");
@@ -60,15 +60,15 @@ public class ProvinceClient {
 	    System.out.println(passwordofIpallilos);
 	    while (passwd!=passwordofIpallilos){
 		    user = JOptionPane.showInputDialog("Δώσατε λάθος κωδικό. Επαναλάβετε τη διαδικασία. \n Δώστε το username σας");
-		    while (rp.findByUsername(user).getPassword()==0){
+		    while (rp.findByUsername(user)==null){
 		    	user = JOptionPane.showInputDialog("Δώσατε μη υπαρκτό username.\n Δώστε ξανά το username σας");
 		    }
 		    pass = JOptionPane.showInputDialog("Δώστε τον κωδικό σας");
 		    passwd = Integer.parseInt(pass);
 		    passwordofIpallilos = rp.findByUsername(user).getPassword();
+
+	    	
 	    }
-	    
-	    
 	    
 
     } catch (Exception e) {

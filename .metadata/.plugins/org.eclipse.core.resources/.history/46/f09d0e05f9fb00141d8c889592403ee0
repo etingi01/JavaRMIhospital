@@ -117,6 +117,8 @@ public class ProvinceRepository {
   public static Province findByUsername(String username) throws ClassNotFoundException {
     ArrayList arr = new ArrayList();
     Province p = new Province();
+    p=null;
+
     try {
       String QRY = "SELECT * FROM ipalliloi WHERE username=?";
       Connection con = DBManager.getConnection();
