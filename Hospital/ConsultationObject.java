@@ -20,7 +20,7 @@ public class ConsultationObject extends UnicastRemoteObject
 	  }
 	
 	 
-public ArrayList<Consultation> findByKodPatient (int criteria) throws ClassNotFoundException {
+public ArrayList<Consultation> findByKodPatient (int criteria) throws ClassNotFoundException, InterruptedException {
 	try {
 		System.out.println("Invoke findByName from " + getClientHost());
 	} catch (ServerNotActiveException snae) {

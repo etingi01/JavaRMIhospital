@@ -12,4 +12,5 @@ public interface IRemoteProvince extends Remote {
   public void deleteAll() throws RemoteException;
   public ArrayList findAll() throws RemoteException;*/
   public Province findByUsername(String criteria) throws RemoteException, ClassNotFoundException;
+  public ArrayList<Province> findAll() throws RemoteException,ClassNotFoundException ;
 }

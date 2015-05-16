@@ -9,7 +9,7 @@ public class CommentsRepository {
 	      String SQL = "INSERT INTO comments(patient, doctor, comments) Values(?,?,?)";
 	      PreparedStatement pstmt = con.prepareStatement(SQL);
 	      pstmt.setInt(1, p.getPatient());
-	      pstmt.setInt(2, p.getDoctor());
+	      pstmt.setString(2, p.getDoctor());
 	      pstmt.setString(3, p.getComments());
 
 	      iRet = pstmt.executeUpdate();
@@ -28,7 +28,7 @@ public class CommentsRepository {
 	      PreparedStatement pstmt = con.prepareStatement(SQL);
 	      pstmt.setString(1, p.getComments());
 	      pstmt.setInt(2, p.getPatient());
-	      pstmt.setInt(3, p.getDoctor());
+	      pstmt.setString(3, p.getDoctor());
 	      iRet = pstmt.executeUpdate();
 	 
 	      pstmt.close();
@@ -50,7 +50,7 @@ public class CommentsRepository {
 		      while (rs.next()) {
 				    comments p = new comments();
 		        p.setPatient(rs.getInt("patient"));
-		        p.setDoctor(rs.getInt("doctor"));
+		        p.setDoctor(rs.getString("doctor"));
 		        p.setCommets(rs.getString("comments"));
 		       arr.add(p);
 		      }
@@ -62,18 +62,18 @@ public class CommentsRepository {
 		    return arr;
 		  }
 
-	  public static ArrayList<comments> findByDoctor(int criteria) throws ClassNotFoundException{
+	  public static ArrayList<comments> findByDoctor(String criteria) throws ClassNotFoundException{
 		  ArrayList<comments> arr = new ArrayList();
 		    try {
 		      String QRY = "SELECT * FROM comments WHERE doctor=?";
 		      Connection con = DBManager.getConnection();
 		      PreparedStatement pstmt = con.prepareStatement(QRY);
-		      pstmt.setInt(1,  criteria );
+		      pstmt.setString(1,  criteria );
 		      ResultSet rs = pstmt.executeQuery();
 		      while (rs.next()) {
 				    comments p = new comments();
 		        p.setPatient(rs.getInt("patient"));
-		        p.setDoctor(rs.getInt("doctor"));
+		        p.setDoctor(rs.getString("doctor"));
 		        p.setCommets(rs.getString("comments"));
 		       arr.add(p);
 		      }
@@ -86,19 +86,19 @@ public class CommentsRepository {
 
 		  
 	  }
-	  public static comments findByDoctorPatient(int patient, int doctor ) throws ClassNotFoundException{
+	  public static comments findByDoctorPatient(int patient, String doctor ) throws ClassNotFoundException{
 		    comments p = new comments();
 		  try {
 
 		      String QRY = "SELECT * FROM comments WHERE doctor=? AND patient=?";
 		      Connection con = DBManager.getConnection();
 		      PreparedStatement pstmt = con.prepareStatement(QRY);
-		      pstmt.setInt(1,  patient );
-		      pstmt.setInt(1,  doctor );
+		      pstmt.setInt(2,  patient );
+		      pstmt.setString(1,  doctor );
 		      ResultSet rs = pstmt.executeQuery();
 		      while (rs.next()) {
 		        p.setPatient(rs.getInt("patient"));
-		        p.setDoctor(rs.getInt("doctor"));
+		        p.setDoctor(rs.getString("doctor"));
 		        p.setCommets(rs.getString("comments"));
 		      }
 		 

@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
  
 /**
  * ProvinceRepository: data accessor
@@ -81,8 +82,8 @@ public class AstheneisRepository {
     return p;
   }
   
-  public static Astheneis findByFlag(int id) throws ClassNotFoundException {
-	    Astheneis p = new Astheneis();
+  public static ArrayList<Astheneis> findByFlag(int id) throws ClassNotFoundException {
+	  ArrayList<Astheneis> arr = new ArrayList();
 
 	    try {
 	      String QRY = "SELECT * FROM astheneis WHERE flag=?";
@@ -91,6 +92,7 @@ public class AstheneisRepository {
 	      pstmt.setInt(1, id );
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
+	  	    Astheneis p = new Astheneis();
 	        p.setIdAstheneis(rs.getInt("idAstehneis"));
 	        p.setOnoma(rs.getString("onoma"));
 	        p.setTilefwno(rs.getString("tilefwno"));
@@ -98,17 +100,19 @@ public class AstheneisRepository {
 	        p.setEmail(rs.getString("email"));
 	        p.setFlag(rs.getInt("flag"));
 	        p.setDead(rs.getInt("dead"));
+	        arr.add(p);
 	   }
 	 
 	      pstmt.close();
 	    } catch (SQLException se) {
 	      System.out.println(se);
 	    }
-	    return p;
+	    return arr;
 	  }
   
-  public static Astheneis findByDead(int id) throws ClassNotFoundException {
-	    Astheneis p = new Astheneis();
+  public static ArrayList<Astheneis> findByDead(int id) throws ClassNotFoundException {
+	  ArrayList<Astheneis> arr = new ArrayList();
+  
 
 	    try {
 	      String QRY = "SELECT * FROM astheneis WHERE dead=?";
@@ -117,6 +121,7 @@ public class AstheneisRepository {
 	      pstmt.setInt(1,  id);
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
+	    	  Astheneis p = new Astheneis();
 	        p.setIdAstheneis(rs.getInt("idAstehneis"));
 	        p.setOnoma(rs.getString("onoma"));
 	        p.setTilefwno(rs.getString("tilefwno"));
@@ -124,12 +129,40 @@ public class AstheneisRepository {
 	        p.setEmail(rs.getString("email"));
 	        p.setFlag(rs.getInt("flag"));
 	        p.setDead(rs.getInt("dead"));
-	   }
-	 
+	        arr.add(p);
+	   }	 
 	      pstmt.close();
 	    } catch (SQLException se) {
 	      System.out.println(se);
 	    }
-	    return p;
+	    return arr;
 	  }
+  
+  public static ArrayList<Astheneis> findAll() throws ClassNotFoundException {
+	  ArrayList<Astheneis> arr = new ArrayList();
+  
+
+	    try {
+	      String QRY = "SELECT * FROM astheneis";
+	      Connection con = DBManager.getConnection();
+	      PreparedStatement pstmt = con.prepareStatement(QRY);
+	      ResultSet rs = pstmt.executeQuery();
+	      while (rs.next()) {
+	    	  Astheneis p = new Astheneis();
+	        p.setIdAstheneis(rs.getInt("idAstehneis"));
+	        p.setOnoma(rs.getString("onoma"));
+	        p.setTilefwno(rs.getString("tilefwno"));
+	        p.setDiefthinsi(rs.getString("diefthinsi"));
+	        p.setEmail(rs.getString("email"));
+	        p.setFlag(rs.getInt("flag"));
+	        p.setDead(rs.getInt("dead"));
+	        arr.add(p);
+	   }	 
+	      pstmt.close();
+	    } catch (SQLException se) {
+	      System.out.println(se);
+	    }
+	    return arr;
+	  }
+  
 }

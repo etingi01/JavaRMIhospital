@@ -1,0 +1,16 @@
+import java.rmi.server.*;
+import java.rmi.*;
+import java.util.ArrayList;
+ 
+public class WarningsObject extends UnicastRemoteObject
+	implements IRemoteWarnings { 
+
+	
+	public AstheneisAllergiesObject() throws RemoteException {
+	    super();
+	}
+
+
+
+	
+}

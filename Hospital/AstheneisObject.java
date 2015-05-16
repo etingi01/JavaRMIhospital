@@ -1,5 +1,6 @@
 import java.rmi.server.*;
 import java.rmi.*;
+import java.util.ArrayList;
  
 /**
  * Server object
@@ -32,7 +33,7 @@ public class AstheneisObject extends UnicastRemoteObject
 	    return AstheneisRepository.findById(criteria);
 	  }
 
-  public Astheneis findByFlag(int criteria) throws ClassNotFoundException {
+  public ArrayList<Astheneis> findByFlag(int criteria) throws ClassNotFoundException {
 	    try {
 	      System.out.println("Invoke findByName from " + getClientHost());
 	    } catch (ServerNotActiveException snae) {
@@ -40,7 +41,7 @@ public class AstheneisObject extends UnicastRemoteObject
 	    }
 	    return AstheneisRepository.findByFlag(criteria);
 	  }
-  public Astheneis findByDead(int criteria) throws ClassNotFoundException {
+  public ArrayList<Astheneis> findByDead(int criteria) throws ClassNotFoundException {
 	    try {
 	      System.out.println("Invoke findByName from " + getClientHost());
 	    } catch (ServerNotActiveException snae) {
@@ -48,6 +49,13 @@ public class AstheneisObject extends UnicastRemoteObject
 	    }
 	    return AstheneisRepository.findByDead(criteria);
 	  }
-
+  public ArrayList<Astheneis> findAll() throws ClassNotFoundException {
+	    try {
+	      System.out.println("Invoke findByName from " + getClientHost());
+	    } catch (ServerNotActiveException snae) {
+	      snae.printStackTrace();
+	    }
+	    return AstheneisRepository.findAll();
+	  }
   
 }

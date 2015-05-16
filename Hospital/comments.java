@@ -3,13 +3,13 @@ import java.io.Serializable;
 public class comments implements Serializable {
 	
 	private int patient_;
-	private int doctor_;
+	private String doctor_;
 	private String comments_;
 	
 	 public comments() {
 	  }
 	 
-	 public comments(int patient, int doctor, String comments) {
+	 public comments(int patient, String doctor, String comments) {
 		 patient_=patient;
 		 doctor_=doctor;
 		 comments_=comments;
@@ -22,10 +22,10 @@ public class comments implements Serializable {
 		 patient_ = patient;
 	 }
 	 
-	 public int getDoctor(){
+	 public String getDoctor(){
 		 return doctor_;
 	 }
-	public void setDoctor(int doctor){
+	public void setDoctor(String doctor){
 		doctor_=doctor;
 	}
 	public String getComments(){

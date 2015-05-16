@@ -14,7 +14,6 @@ public class Astheneis implements Serializable {
 
 	  public Astheneis() {
 	  }
-	 
 
 	  public Astheneis(int idAstheneis, String onoma, String epwnimo, String tilefwno, String diefthinsi, String email, int flag, int dead) {
 		  idAstheneis_ = idAstheneis;

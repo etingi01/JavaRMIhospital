@@ -55,7 +55,6 @@ public class TherapeiesAstheneiesRepository {
 	}
 
 	public static ArrayList<TherapeiesAstheneies> findByAstheneia (int id) throws ClassNotFoundException {
-		TherapeiesAstheneies p = new TherapeiesAstheneies();
 		ArrayList<TherapeiesAstheneies> astheneia = new ArrayList<TherapeiesAstheneies>();
 		
 		try {
@@ -65,6 +64,7 @@ public class TherapeiesAstheneiesRepository {
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				TherapeiesAstheneies p = new TherapeiesAstheneies();
 				p.setCodeAstheneias(rs.getInt("codeAstheneias"));
 				p.setTherapeiaCode(rs.getInt("therapeiaCode"));
 				p.setImerominiaTA(rs.getDate("imerominiaTA"));
@@ -81,7 +81,6 @@ public class TherapeiesAstheneiesRepository {
 	
 	
 	public static ArrayList<TherapeiesAstheneies> findByTherapeia (int id) throws ClassNotFoundException {
-		TherapeiesAstheneies p = new TherapeiesAstheneies();
 		ArrayList<TherapeiesAstheneies> therapeia = new ArrayList<TherapeiesAstheneies>();
 	  
 		try {
@@ -91,6 +90,7 @@ public class TherapeiesAstheneiesRepository {
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				TherapeiesAstheneies p = new TherapeiesAstheneies();
 				p.setCodeAstheneias(rs.getInt("codeAstheneias"));
 				p.setTherapeiaCode(rs.getInt("therapeiaCode"));
 				p.setImerominiaTA(rs.getDate("imerominiaTA"));

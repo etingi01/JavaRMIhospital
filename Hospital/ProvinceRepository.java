@@ -140,5 +140,31 @@ public class ProvinceRepository {
     }
     return p;
   }
-  
+  public static ArrayList<Province> findAll() throws ClassNotFoundException {
+	    ArrayList<Province> arr = new ArrayList();
+
+	    try {
+	      String QRY = "SELECT * FROM ipalliloi";
+	      Connection con = DBManager.getConnection();
+	      PreparedStatement pstmt = con.prepareStatement(QRY);
+	      ResultSet rs = pstmt.executeQuery();
+	      while (rs.next()) {
+	  	    Province p = new Province();
+	        p.setPassword(rs.getInt("password"));
+	        p.setEmail(rs.getString("email"));
+	        p.setEpwnimo(rs.getString("epwnimo"));
+	        p.setOnoma(rs.getString("onoma"));
+	        p.setTilefwno(rs.getString("tilefwno"));
+	        p.setCodeType(rs.getInt("codeType"));
+	        p.setUsename(rs.getString("username"));
+	        arr.add(p);
+	   }
+	 
+	      pstmt.close();
+	    } catch (SQLException se) {
+	      System.out.println(se);
+	    }
+	    return arr;
+	  }
+
 }

@@ -12,7 +12,7 @@ public interface IRemoteAstheneis extends Remote {
   public void deleteAll() throws RemoteException;
   public ArrayList findAll() throws RemoteException;*/
   public Astheneis findById(int criteria) throws RemoteException, ClassNotFoundException;
-  public Astheneis findByFlag(int criteria) throws RemoteException, ClassNotFoundException;
-  public Astheneis findByDead(int criteria) throws RemoteException, ClassNotFoundException;
-
+  public ArrayList<Astheneis> findByFlag(int criteria) throws RemoteException, ClassNotFoundException;
+  public ArrayList<Astheneis> findByDead(int criteria) throws RemoteException, ClassNotFoundException;
+  public ArrayList<Astheneis> findAll()throws RemoteException, ClassNotFoundException;
 }

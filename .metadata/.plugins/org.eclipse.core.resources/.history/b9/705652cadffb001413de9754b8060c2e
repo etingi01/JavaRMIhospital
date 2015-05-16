@@ -1,0 +1,79 @@
+
+import java.sql.*;
+import java.util.ArrayList;
+
+/**
+ * ProvinceRepository: data accessor
+ * @author http://lycog.com
+ */
+public class WarningsRepository {
+	  public static int save(Warnings p) throws ClassNotFoundException {
+		    int iRet = -1;
+		    try {
+		      Connection con = DBManager.getConnection();
+		      String SQL = "INSERT INTO warnings (iddoctor, kodArrostou , therapeia, codeConsultation) Values(?,?,?,?)";
+		      PreparedStatement pstmt = con.prepareStatement(SQL);
+		      pstmt.setString(1, p.getIddoctor());
+		      pstmt.setInt(2, p.getKodArrostou());
+		      pstmt.setInt(3, p.getKodArrostou());
+		      pstmt.setInt(4, p.getCodeConsultation());
+		      iRet = pstmt.executeUpdate();
+		 
+		      pstmt.close();
+		    } catch (SQLException se) {
+		      System.out.println(se);
+		    }
+		 
+		    return iRet;
+		  }
+
+	  public static ArrayList<Warnings> findByIdDoctor(String criteria) throws ClassNotFoundException {
+		  ArrayList<Warnings> arr = new ArrayList();
+		    try {
+		      String QRY = "SELECT * FROM warnings WHERE iddoctor=?";
+		      Connection con = DBManager.getConnection();
+		      PreparedStatement pstmt = con.prepareStatement(QRY);
+		      pstmt.setString(1,  criteria );
+		      ResultSet rs = pstmt.executeQuery();
+		      while (rs.next()) {
+		    	Warnings p = new Warnings();
+		        p.setIddoctor(rs.getString("iddoctor"));
+		        p.setCodeConsultation(rs.getInt("codeConsultation"));
+		        p.setKodArrostou(rs.getInt("kodArrostou"));
+		        p.setTherapeia(rs.getInt("therapeia"));
+		       arr.add(p);
+		      }
+		 
+		      pstmt.close();
+		    } catch (SQLException se) {
+		      System.out.println(se);
+		    }
+		    return arr;
+		  }
+	  public static ArrayList<Warnings> findByKodArrostou(int criteria) throws ClassNotFoundException {
+		  ArrayList<Warnings> arr = new ArrayList();
+		    try {
+		      String QRY = "SELECT * FROM warnings WHERE iddoctor=?";
+		      Connection con = DBManager.getConnection();
+		      PreparedStatement pstmt = con.prepareStatement(QRY);
+		      pstmt.setInt(1,  criteria );
+		      ResultSet rs = pstmt.executeQuery();
+		      while (rs.next()) {
+		    	Warnings p = new Warnings();
+		        p.setIddoctor(rs.getString("iddoctor"));
+		        p.setCodeConsultation(rs.getInt("codeConsultation"));
+		        p.setKodArrostou(rs.getInt("kodArrostou"));
+		        p.setTherapeia(rs.getInt("therapeia"));
+		       arr.add(p);
+		      }
+		 
+		      pstmt.close();
+		    } catch (SQLException se) {
+		      System.out.println(se);
+		    }
+		    return arr;
+		  }
+
+
+
+}

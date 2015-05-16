@@ -66,4 +66,12 @@ public class ProvinceObject extends UnicastRemoteObject
     }
     return ProvinceRepository.findByUsername(criteria);
   }
+  public ArrayList<Province> findAll() throws ClassNotFoundException{
+	  try {
+	      System.out.println("Invoke findByName from " + getClientHost());
+	    } catch (ServerNotActiveException snae) {
+	      snae.printStackTrace();
+	    }
+	    return ProvinceRepository.findAll();
+  }
 }

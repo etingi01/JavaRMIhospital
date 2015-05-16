@@ -37,7 +37,7 @@ implements IRemoteComments {
 		    return CommentsRepository.findById(criteria);
 		  }
 	
-	public ArrayList<comments> findByDoctor(int criteria) throws ClassNotFoundException{
+	public ArrayList<comments> findByDoctor(String criteria) throws ClassNotFoundException{
 		  try {
 		      System.out.println("Invoke findAll from " + getClientHost());
 		    } catch (ServerNotActiveException snae) {
@@ -46,7 +46,7 @@ implements IRemoteComments {
 		    return CommentsRepository.findByDoctor(criteria);
 		  }
 
-	public comments findByDoctorPatient(int patient, int doctor ) throws ClassNotFoundException{
+	public comments findByDoctorPatient(int patient, String doctor ) throws ClassNotFoundException{
 		 try {
 		      System.out.println("Invoke findAll from " + getClientHost());
 		    } catch (ServerNotActiveException snae) {

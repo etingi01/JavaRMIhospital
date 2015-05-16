@@ -8,13 +8,13 @@ public class Consultation implements Serializable {
   private int kodPatient_;
   private String doctorusername_;
   private Date imerominiaConsultation_;
-  private Time ora_;
+  private String ora_;
   private int emfanistike_;
   
   public Consultation() {
   }
  
-  public Consultation(int idConsultation, int kodPatient, String doctorusername, Date imerominiaConsultation, Time ora, int emfanistike) {
+  public Consultation(int idConsultation, int kodPatient, String doctorusername, Date imerominiaConsultation, String ora, int emfanistike) {
 	  idConsultation_ = idConsultation;
 	  kodPatient_ = kodPatient;
 	  doctorusername_ = doctorusername;
@@ -55,12 +55,12 @@ public class Consultation implements Serializable {
 	  imerominiaConsultation_ = imerominiaConsultation;
   }
   
-  public Time getOra() {
+  public String getOra() {
 	  return ora_;
   }
  
-  public void setOra(Time ora) {
-	  ora_ = ora;
+  public void setOra(String ora) {
+	  ora_=ora;
   }
   
   public int getEmfanistike() {

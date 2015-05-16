@@ -16,8 +16,8 @@ public class ConsultationRepository {
 		     PreparedStatement pstmt = con.prepareStatement(SQL);
 		     pstmt.setInt(1, p.getKodPatient());
 		     pstmt.setString(2, p.getDoctorusername());
-		     pstmt.setDate(3, (Date) p.getImerominiaConsultation());
-		     pstmt.setTime(4, (Time) p.getOra());
+		     pstmt.setDate(3, p.getImerominiaConsultation());
+		     pstmt.setString(4, p.getOra());
 		     pstmt.setInt(5, p.getEmfanistike());
 		
 		     iRet = pstmt.executeUpdate();
@@ -31,24 +31,26 @@ public class ConsultationRepository {
 		    return iRet; 
 	 }
  
-  public static  ArrayList<Consultation> findByKodPatient (int id) throws ClassNotFoundException {
-	  Consultation  p = new Consultation();
+  public static  ArrayList<Consultation> findByKodPatient (int criteria) throws ClassNotFoundException, InterruptedException {
 	  ArrayList<Consultation> patient = new ArrayList<Consultation>();
 	  
     try {
-      String QRY = "SELECT * FROM consultation WHERE kodPatient = ? ";
+      String QRY = "SELECT * FROM hospital.consultation WHERE kodPatient = ? ";
       Connection con = DBManager.getConnection();
       PreparedStatement pstmt = con.prepareStatement(QRY);
-      pstmt.setInt(1, id);
+      pstmt.setInt(1, criteria);
       ResultSet rs = pstmt.executeQuery();
       while (rs.next()) {
+    	  Consultation  p = new Consultation();
+
         p.setIdConsultation(rs.getInt("idConsultation"));
         p.setKodPatient(rs.getInt("kodPatient"));
         p.setDoctorusername(rs.getString("doctorusername"));
         p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
-        p.setOra(rs.getTime("ora"));
+        p.setOra(rs.getString("ora"));
         p.setEmfanistike(rs.getInt("emfanistike"));
-
+        
+        System.out.println("vrike");
         
         patient.add(p);
    }
@@ -56,7 +58,7 @@ public class ConsultationRepository {
       pstmt.close();
     } catch (SQLException se) {
       System.out.println(se);
-    }
+      }
     return patient;
   }
 
@@ -77,7 +79,7 @@ public class ConsultationRepository {
 	          p.setKodPatient(rs.getInt("kodPatient"));
 	          p.setDoctorusername(rs.getString("doctorusername"));
 	          p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
-	          p.setOra(rs.getTime("ora"));
+	          p.setOra(rs.getString("ora"));
 	          p.setEmfanistike(rs.getInt("emfanistike"));
 
 	          doctor.add(p);
@@ -107,7 +109,7 @@ public class ConsultationRepository {
           p.setKodPatient(rs.getInt("kodPatient"));
           p.setDoctorusername(rs.getString("doctorusername"));
           p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
-          p.setOra(rs.getTime("ora"));
+          p.setOra(rs.getString("ora"));
           p.setEmfanistike(rs.getInt("emfanistike"));
         imerominia.add(p);
    }
@@ -135,7 +137,7 @@ public class ConsultationRepository {
           p.setKodPatient(rs.getInt("kodPatient"));
           p.setDoctorusername(rs.getString("doctorusername"));
           p.setImerominiaConsultation(rs.getDate("imerominiaConsultation"));
-          p.setOra(rs.getTime("ora"));
+          p.setOra(rs.getString("ora"));
           p.setEmfanistike(rs.getInt("emfanistike"));
         emfanistike.add(p);
    }
