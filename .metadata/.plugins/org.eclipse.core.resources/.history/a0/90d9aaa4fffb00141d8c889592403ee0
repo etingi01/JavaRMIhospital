@@ -79,10 +79,10 @@ public class ProvinceClient {
       
       
       //Save province
-    	Province bmc = new Province(8282, "rlouka01", "Rafaellita", "Louka", "99394781" , "rafkiola@gmail.com", 2);
-      	System.out.println("Saving provinces...");
+      Province bmc = new Province(8282, "rlouka01", "Rafaellita", "Louka", "99394781" , "rafkiola@gmail.com", 2);
+      System.out.println("Saving provinces...");
       //rp.save(bmc);
-      	ProvinceClient antikeimeno = new ProvinceClient();
+      ProvinceClient antikeimeno = new ProvinceClient();
 
       
 	    String user = JOptionPane.showInputDialog("Δώστε το username σας");
@@ -90,7 +90,6 @@ public class ProvinceClient {
 	    while (antikeimeno.rp.findByUsername(user).getPassword()==0){
 	    	user = JOptionPane.showInputDialog("Δώσατε μη υπαρκτό username.\n Δώστε ξανά το username σας");
 	    }
-	    
 	    String pass = JOptionPane.showInputDialog("Δώστε τον κωδικό σας");
 	    int passwd = Integer.parseInt(pass);
 	    int passwordofIpallilos = antikeimeno.rp.findByUsername(user).getPassword();
@@ -108,7 +107,7 @@ public class ProvinceClient {
 	    Province ipallilos = new Province();
 	    ipallilos=antikeimeno.rp.findByUsername(user);
 	    
-	 /*   switch (ipallilos.getCodeType()){
+	    switch (ipallilos.getCodeType()){
 	    
 	    case 1:
 	    		
@@ -124,7 +123,7 @@ public class ProvinceClient {
 	    		break;
 	    case 6: EpifaneiaManagers(ipallilos);
 	    		break;
-	    }*/
+	    }
 	    
 	    
 

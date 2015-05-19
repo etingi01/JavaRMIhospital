@@ -108,7 +108,7 @@ public class ProvinceClient {
 	    Province ipallilos = new Province();
 	    ipallilos=antikeimeno.rp.findByUsername(user);
 	    
-	 /*   switch (ipallilos.getCodeType()){
+	    switch (ipallilos.getCodeType()){
 	    
 	    case 1:
 	    		
@@ -124,7 +124,7 @@ public class ProvinceClient {
 	    		break;
 	    case 6: EpifaneiaManagers(ipallilos);
 	    		break;
-	    }*/
+	    }
 	    
 	    
 

@@ -5,5 +5,16 @@
 <fullyQualifiedTypeName name="java.rmi.server.ExportException"/>
 <fullyQualifiedTypeName name="java.util.logging.Level"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="ConsultationObject"/>
+<fullyQualifiedTypeName name="TypeAstheneiasObject"/>
+<fullyQualifiedTypeName name="IRemoteTypeAstheneias"/>
+<fullyQualifiedTypeName name="IstorikoTherapeias"/>
+<fullyQualifiedTypeName name="PatientAstheneies"/>
+<fullyQualifiedTypeName name="SiggenisAstheni"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Therapeia"/>
+<fullyQualifiedTypeName name="TherapeiesAstheneies"/>
+<fullyQualifiedTypeName name="Consultation"/>
+<fullyQualifiedTypeName name="TypeAstheneias"/>
+<fullyQualifiedTypeName name="ProvinceClient"/>
 </qualifiedTypeNameHistroy>
