@@ -93,7 +93,9 @@ public class AstheneisRepository {
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
 	  	    Astheneis p = new Astheneis();
-	        p.setIdAstheneis(rs.getInt("idAstehneis"));
+	        p.setIdAstheneis(rs.getInt("idAstheneis"));
+	        p.setEpwnimo(rs.getString("epwnimo"));
+
 	        p.setOnoma(rs.getString("onoma"));
 	        p.setTilefwno(rs.getString("tilefwno"));
 	        p.setDiefthinsi(rs.getString("diefthinsi"));
@@ -122,7 +124,9 @@ public class AstheneisRepository {
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
 	    	  Astheneis p = new Astheneis();
-	        p.setIdAstheneis(rs.getInt("idAstehneis"));
+	        p.setIdAstheneis(rs.getInt("idAstheneis"));
+	        p.setEpwnimo(rs.getString("epwnimo"));
+
 	        p.setOnoma(rs.getString("onoma"));
 	        p.setTilefwno(rs.getString("tilefwno"));
 	        p.setDiefthinsi(rs.getString("diefthinsi"));
@@ -149,8 +153,9 @@ public class AstheneisRepository {
 	      ResultSet rs = pstmt.executeQuery();
 	      while (rs.next()) {
 	    	  Astheneis p = new Astheneis();
-	        p.setIdAstheneis(rs.getInt("idAstehneis"));
+	        p.setIdAstheneis(rs.getInt("idAstheneis"));
 	        p.setOnoma(rs.getString("onoma"));
+	        p.setEpwnimo(rs.getString("epwnimo"));
 	        p.setTilefwno(rs.getString("tilefwno"));
 	        p.setDiefthinsi(rs.getString("diefthinsi"));
 	        p.setEmail(rs.getString("email"));
