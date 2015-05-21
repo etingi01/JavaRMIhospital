@@ -18,7 +18,14 @@ public class ConsultationObject extends UnicastRemoteObject
 	    }
 	    return ConsultationRepository.save(p);
 	  }
-	
+	public int update(Consultation p) throws ClassNotFoundException {
+	    try {
+	      System.out.println("Invoke save from " + getClientHost());
+	    } catch (ServerNotActiveException snae) {
+	      snae.printStackTrace();
+	    }
+	    return ConsultationRepository.update(p);
+	  }
 	 
 public ArrayList<Consultation> findByKodPatient (int criteria) throws ClassNotFoundException, InterruptedException {
 	try {
@@ -36,7 +43,7 @@ public ArrayList<Consultation> findByDoctorUsername (String criteria) throws Cla
 	} catch (ServerNotActiveException snae) {
 		snae.printStackTrace();
 	}
-	return ConsultationRepository.findByDoctorUsername (criteria);
+	return ConsultationRepository.findByDoctorUsername(criteria);
 }
 
 public ArrayList<Consultation> findByImerominia(Date criteria) throws ClassNotFoundException {
@@ -45,7 +52,7 @@ public ArrayList<Consultation> findByImerominia(Date criteria) throws ClassNotFo
 	} catch (ServerNotActiveException snae) {
 		snae.printStackTrace();
 	}
-	return ConsultationRepository.findByImerominia (criteria);
+	return ConsultationRepository.findByImerominia(criteria);
 }
 
 public  ArrayList<Consultation> findByEmfanistike (int criteria) throws ClassNotFoundException {
@@ -54,6 +61,14 @@ public  ArrayList<Consultation> findByEmfanistike (int criteria) throws ClassNot
 	} catch (ServerNotActiveException snae) {
 		snae.printStackTrace();
 	}
-	return ConsultationRepository.findByEmfanistike (criteria);
+	return ConsultationRepository.findByEmfanistike(criteria);
+}
+public  ArrayList<Consultation> findAll () throws ClassNotFoundException {
+	try {
+		System.out.println("Invoke findByName from " + getClientHost());
+	} catch (ServerNotActiveException snae) {
+		snae.printStackTrace();
+	}
+	return ConsultationRepository.findAll();
 }
 }

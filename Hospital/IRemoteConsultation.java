@@ -8,5 +8,7 @@ public interface IRemoteConsultation extends Remote {
 	public ArrayList<Consultation> findByDoctorUsername (String criteria) throws RemoteException, ClassNotFoundException;
 	public ArrayList<Consultation> findByImerominia (Date criteria) throws RemoteException, ClassNotFoundException;
 	public ArrayList<Consultation> findByEmfanistike (int criteria) throws RemoteException, ClassNotFoundException;
+	public ArrayList<Consultation> findAll () throws RemoteException, ClassNotFoundException;
+	public int update(Consultation p) throws RemoteException, ClassNotFoundException;
 
 }

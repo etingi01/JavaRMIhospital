@@ -18,5 +18,12 @@ public class TypeAstheneiasObject extends UnicastRemoteObject
 	    
 	    return TypeAstheneiasRepostitory.findByIdTypeAstheneias(criteria);
 	  }
-  
+	 public ArrayList<TypeAstheneias> findAll() throws ClassNotFoundException {
+		    try {
+		      System.out.println("Invoke findByName from " + getClientHost());
+		    } catch (ServerNotActiveException snae) {
+		      snae.printStackTrace();
+		    }
+		    return TypeAstheneiasRepostitory.findAll();
+		  }
 }

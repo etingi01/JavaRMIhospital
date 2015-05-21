@@ -17,4 +17,14 @@
 <fullyQualifiedTypeName name="Consultation"/>
 <fullyQualifiedTypeName name="TypeAstheneias"/>
 <fullyQualifiedTypeName name="ProvinceClient"/>
+<fullyQualifiedTypeName name="java.lang.ProcessBuilder"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="javax.swing.event.TableModelEvent"/>
+<fullyQualifiedTypeName name="javax.swing.table.TableModel"/>
+<fullyQualifiedTypeName name="javax.swing.table.TableColumn"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
+<fullyQualifiedTypeName name="Astheneis"/>
+<fullyQualifiedTypeName name="Province"/>
 </qualifiedTypeNameHistroy>
